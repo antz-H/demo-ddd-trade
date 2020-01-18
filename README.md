@@ -13,16 +13,25 @@
 采用以上的设计，不仅简化了代码的编写，也规范了代码的编写，即业务开发人员没有机会将业务代码写到Controller与DAO中，必然就会按照充血模型与贫血模型，将业务代码写到Service与值对象中。通过该设计，也使得业务代码与技术框架解耦，从而能够更好地应对技术框架的更迭，进行架构演化。
 
 本示例可以从客户端访问的服务：
+
 service-customer:
+
 curl -X POST http://localhost:8800/query/customerQry
+
 curl -X POST http://localhost:8800/orm/customer/save -d "id=0005&name=Youngman&sex=male&birthday=2013-07-08&identification=110212201307083814&phoneNumber=13477496662"
+
 curl http://localhost:8800/orm/customer/delete?id=0005
+
 curl http://localhost:8800/orm/customer/listOfCustomers
 
 service-product:
+
 curl -X POST http://localhost:8800/query/productQry
+
 curl -X POST http://localhost:8800/orm/product/saveProduct -d "id=P00006&name=ThinkPad+T220&price=4600&unit=%E4%B8%AA&supplierId=S0002&classify=%E5%8A%9E%E5%85%AC%E7%94%A8%E5%93%81"
+
 curl http://localhost:8800/orm/product/deleteProduct?id=P00006
 
 service-supplier:
+
 curl http://localhost:8800/orm/supplier/loadSupplier?id=S0002
